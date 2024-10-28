@@ -36,7 +36,7 @@ alcaldias = {
 
 
 # Inicalización de mapa.
-def init_map(center=(19.4325019109759, -99.1322510732777), zoom_start=10, map_type="cartodbpositron"):
+def init_map(center=(1.2868736122709594, 103.85484853562664), zoom_start=10, map_type="cartodbpositron"):
     return folium.Map(location=center, zoom_start=zoom_start, tiles=map_type)
 
 
