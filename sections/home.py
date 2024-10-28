@@ -40,14 +40,10 @@ def app():
         - Benefits and discounts 🎁
         </div>
         """, unsafe_allow_html=True)
-    
+        st.write("""
+    Join **Access Places** and be part of the adventure. Your next great experience starts here!
+    """)
     with col2:
         st.markdown('<div class="map-container">', unsafe_allow_html=True)
         maps.app()
         st.markdown('</div>', unsafe_allow_html=True)
-    
-    st.write("""
-    Join **Access Places** and be part of the adventure. Your next great experience starts here!
-    """)
-
-    st.write('<br>', unsafe_allow_html=True)
