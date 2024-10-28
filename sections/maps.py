@@ -17,8 +17,8 @@ def app():
     # Get places.
     lugares = db.child('Lugares').get().val()
     for l in lugares:
-        lugar = db.child('Lugares').child(l).child('Country').get().val()
-        if lugar == 'Singapur':
+        lugar = db.child('Lugares').child(l).child('country').get().val()
+        if lugar == 'Singapore':
             if bss_type == 'All' or bss_type == db.child('Lugares').child(l).child('bss_type').get().val():
                 x = db.child('Lugares').child(l).child('x').get().val()
                 y = db.child('Lugares').child(l).child('y').get().val()

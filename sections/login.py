@@ -3,8 +3,7 @@ import streamlit as st
 from utils.firebase_utils import login_session
 # Conexión a base de datos.
 from utils.firebase import Firebase
-from sections import register_places, home, see_places, user_home, recomendaciones, sectores, visited_places
-from streamlit_lottie import st_lottie
+from sections import register_places, home, see_places, user_home, recomendaciones, sectores, visited_places, add_space
 #from streamlit_option_menu import option_menu
 import json
 from sections.membership import display_rewards_table
@@ -25,9 +24,7 @@ def obtener_datos_usuario():
     }
     return datos_usuario
 
-def load_lottiefile(filepath: str):
-    with open(filepath, "r") as file:
-        return json.load(file)
+
 
 def app():
 
@@ -86,16 +83,10 @@ def app():
         text_email = st.sidebar.text_input('Email', key='email')
         text_password = st.sidebar.text_input('Password', type='password', key='password')
         # Enviar información.
-        st.sidebar.button("Login", on_click=login_session, args=(text_email, text_password))
-        lottie_intro = load_lottiefile("./img/similo3.json")
-
-        # Mostrar la animación Lottie en la barra lateral
-        with st.sidebar:
-            st_lottie(lottie_intro)   
+        st.sidebar.button("Login", on_click=login_session, args=(text_email, text_password)) 
 
     # Sesión Iniciada.
     if st.session_state['signout']:
-        lottie_intro = load_lottiefile("./img/similo3.json") 
         # st_lottie(lottie_intro)
         st.sidebar.image('./img/logoAP.png', use_column_width=True, width=180)
         st.sidebar.title("Welcome")
@@ -108,18 +99,20 @@ def app():
             st.sidebar.markdown(f'**Industry of the Company**: {st.session_state["bss_type"]}')
             if st.sidebar.button("Register Places"):
                 st.session_state.selection = "LUGARES"
+            if st.sidebar.button("Add Spaces"):
+                st.session_state.selection = "AGREGAR_LUGAR"
             if st.sidebar.button("View Spaces"):
                 st.session_state.selection = "VER_LUGARES"
             
             # Options.
             if "selection" not in st.session_state:
                 register_places.app()
-            elif st.session_state.selection == "REGISTRAR":
-                register_places.app()
             elif st.session_state.selection == "LUGARES":
                 register_places.app()
             elif st.session_state.selection == "VER_LUGARES":
                 see_places.app()
+            elif st.session_state.selection == "AGREGAR_LUGAR":
+                add_space.app()
             else: 
                 register_places.app()
         else:
@@ -160,9 +153,6 @@ def app():
                 st.write(f"**User Type:** {st.session_state['user_type']} 🛂")
                 st.write(f"**ID:** {st.session_state['ID']} 🔖")
                 st.write("User since: October 29, 2024 📅")
-                # Mostrar esta animación en el cuerpo principal
-                lottie_intro = load_lottiefile("./img/place2.json") 
-                st_lottie(lottie_intro)
             elif st.session_state.selection == "RECOMPENSAS":
                 display_rewards_table()
             elif st.session_state.selection == "VISITED":
@@ -170,7 +160,3 @@ def app():
             else:
                 user_home.app()
         st.sidebar.button("Log Out", on_click=logout_session)
-
-        with st.sidebar:
-            st_lottie(lottie_intro) 
-
