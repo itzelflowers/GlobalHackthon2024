@@ -44,7 +44,7 @@ def space_register(places):
 def event_register(places):
     st.title("Add a Event")
     selected_place = st.selectbox("Select the place where you want to add a space", places)
-    spaces = places.child('spaces')
+    spaces = db.child("Lugares").child(selected_place).child('spaces').get().val()
     selected_spaces = st.selectbox("Select the place where you want to add a space", spaces)
     name_event = st.text_input("Write the name of the event")
     occp = st.text_input("Ocupability")
@@ -55,5 +55,6 @@ def event_register(places):
         db.child("Lugares").child(selected_place).child('events').child(name_event).set(name_event)
         db.child("Lugares").child(selected_place).child('events').child(name_event).child('selected_spaces').set(selected_spaces)
         db.child("Lugares").child(selected_place).child('events').child(name_event).child('occp').set(occp)
+        db.child("Lugares").child(selected_place).child('events').child(name_event).child('status').set(status)
         st.success('The place has been created successfully.')
         st.balloons()
