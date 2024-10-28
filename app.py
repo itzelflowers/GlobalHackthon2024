@@ -91,10 +91,10 @@ if st.session_state['user_type'] != '':
 else:
     if "selection" not in st.session_state:
         home.app()
-        st.subheader("¿Quieres explorar más lugares?")
-        if st.button("Registrar"):
-            st.session_state.selection = "REGISTRAR"
-    elif st.session_state.selection == "REGISTRAR":
+        st.subheader("Do you want to explore more places?")
+        if st.button("Register"):
+            st.session_state.selection = "REGISTER"
+    elif st.session_state.selection == "REGISTER":
         register()
     else:
         home.app()

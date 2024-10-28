@@ -4,14 +4,14 @@ class Firebase:
     def __init__(self):
         # Configuration key.
         self._firebaseConfig = {
-            'apiKey': "AIzaSyCfPF9b2EwwQiQz9XFjtgZMYVusCcNZtvU",
-            'authDomain': "singapur-381c8.firebaseapp.com",
-            'databaseURL': "https://singapur-381c8-default-rtdb.firebaseio.com",
-            'projectId': "singapur-381c8",
-            'storageBucket': "singapur-381c8.appspot.com",
-            'messagingSenderId': "629536295319",
-            'appId': "1:629536295319:web:58d41443e24b69f36a5cd2",
-            'measurementId': "G-8GLPJL6BFP"
+            'apiKey': "AIzaSyCGw0yokHwaEgWWNc1OGDo-8Iwk8_p5R6Q",
+            'authDomain': "hackmexico2-784a3.firebaseapp.com",
+            'databaseURL': "https://hackmexico2-784a3-default-rtdb.firebaseio.com",
+            'projectId': "hackmexico2-784a3",
+            'storageBucket': "hackmexico2-784a3.appspot.com",
+            'messagingSenderId': "499824700976",
+            'appId': "1:499824700976:web:75ce309870353aa99c07f5",
+            'measurementId': "G-E3R7BYY22N"
         }
         # Firebase.
         self._firebase = pyrebase.initialize_app(self._firebaseConfig)
