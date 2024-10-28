@@ -75,7 +75,7 @@ def register():
 
 # Configuración de Streamlit.
 st.set_page_config(
-    page_title="Hidden Places | Home",
+    page_title="Access Places | Home",
     page_icon="🗺️",
     initial_sidebar_state="expanded",
 )

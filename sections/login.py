@@ -80,7 +80,7 @@ def app():
 
     # Información de login.
     if not st.session_state['signedout']:
-        st.sidebar.image('./img/logoconnombre.png', use_column_width=True, width=180)
+        st.sidebar.image('./img/logoAP.png', use_column_width=True, width=180)
         st.sidebar.title("Inicio de Sesión") 
         st.sidebar.write("Inicia Sesión para ver más características")
         text_email = st.sidebar.text_input('Correo Electrónico', key='email')
