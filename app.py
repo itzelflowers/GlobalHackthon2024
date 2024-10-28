@@ -3,7 +3,6 @@ import streamlit as st
 from sections import login, maps,home
 from utils.firebase import Firebase
 import json
-import plotly.graph_objects as go
 
 # Registro de empresas.
 def bussines_register():
