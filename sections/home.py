@@ -1,10 +1,12 @@
+# Import the libraries needed.
 import streamlit as st
 from sections import maps
 
+# Initial app.
 def app():
-    st.title("Bienvenidos a Hidden Places", anchor=None)
+    st.title("Welcome to Access Places", anchor=None)
     
-    # Estilos para la sangría y el espaciado
+    # Styles.
     st.markdown("""
         <style>
             .slogan {
@@ -19,26 +21,23 @@ def app():
         </style>
     """, unsafe_allow_html=True)
     
-    # Slogan y descripción
-    st.write('<div class="slogan"><h2>Explora sin Límites 🌍</h2></div>', unsafe_allow_html=True)
+    # Slogan and description.
+    st.write('<div class="slogan"><h2>Places that suits you all over the world 🌍</h2></div>', unsafe_allow_html=True)
     st.markdown("""
-    **Hidden Places** es tu guía para un turismo accesible en la CDMX. Nos comprometemos a que personas con discapacidad motriz y adultos mayores disfruten de cada rincón con total libertad. 
-
-    Con **facilidades accesibles**, comunidad interactiva y beneficios exclusivos, cada visita se convierte en una experiencia inolvidable.
-
-    Las empresas tienen una nueva ventana al mundo del turismo inclusivo, descubriendo oportunidades para todos.
+    **Access Places** is the guide to find places that suits to your necesities. We are committed to ensuring that you have the best experience in the places you visit, 
+                imagine arriving at a place, knowing that you will always find it available,
+                without worrying about it being busy.
     """)
     
-    # Lista de cualidades y el mapa
-    col1, col2 = st.columns([1, 2])  # Proporción de columnas: 1 para la lista, 2 para el mapa
+    # List of cualities.
+    col1, col2 = st.columns([1, 2])
     
     with col1:
-        st.markdown('<div class="qual-list"><h3>Cualidades de Hidden Places:</h3>', unsafe_allow_html=True)
+        st.markdown('<div class="qual-list"><h3>What do we offer?</h3>', unsafe_allow_html=True)
         st.markdown("""
-        - Accesibilidad garantizada 🚪
-        - Comunidad activa 👥
-        - Beneficios y descuentos 🎁
-        - Compromiso con la inclusión 💖
+        - Guaranteed accessibility 🚪
+        - Active comunity 👥
+        - Benefits and discounts 🎁
         </div>
         """, unsafe_allow_html=True)
     
@@ -47,18 +46,8 @@ def app():
         maps.app()
         st.markdown('</div>', unsafe_allow_html=True)
     
-    # Texto debajo del mapa
     st.write("""
-    Descubre los destinos turísticos más acogedores para todos, con la seguridad y el confort que mereces.
-
-    Únete a Hidden Places y sé parte de la aventura. ¡Tu próxima gran experiencia comienza aquí!
+    Join Hidden Places and be part of the adventure. Your next great experience starts here!
     """)
 
-    # Separación antes del botón
     st.write('<br>', unsafe_allow_html=True)
-    
-    # Botón para más información o acción
-    if st.button('Descubre más sobre Hidden Places'):
-        # Acción cuando el botón es presionado
-        pass
-
