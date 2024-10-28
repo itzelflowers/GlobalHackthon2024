@@ -17,6 +17,6 @@ def login_session(email, password):
         # Obtener información del usuario.
         st.session_state['ID'] = db.child(user['localId']).child('ID').get().val()
         st.session_state['user_type'] = db.child(user['localId']).child('user_type').get().val()
-        st.success("Inicio de Sesión Exitoso")
+        st.success("Successful Login")
     except Exception as e:
-        st.warning('No es posible Iniciar Sesión')
+        st.warning('Login Failed')

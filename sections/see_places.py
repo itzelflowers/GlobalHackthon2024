@@ -52,7 +52,7 @@ def plot_map(folium_map):
     return folium_map
 
 def app():
-    st.title("Tus negocios")
+    st.title("Your Businesses")
     m = init_map()
     m = plot_map(m)
     lugares = db.child('Lugares').get().val()
@@ -68,15 +68,5 @@ def app():
         st.subheader(f'{st.session_state.selected_id}')
         location = db.child('Lugares').child(st.session_state.selected_id ).child('Location').get().val()
         bss_type = db.child('Lugares').child(st.session_state.selected_id ).child('bss_type').get().val()
-        asistencia = db.child('Lugares').child(st.session_state.selected_id ).child('asistencia').get().val()
-        elevadores = db.child('Lugares').child(st.session_state.selected_id ).child('elevadores').get().val()
-        estacionamiento = db.child('Lugares').child(st.session_state.selected_id ).child('estacionamiento').get().val()
-        rampas = db.child('Lugares').child(st.session_state.selected_id ).child('rampas').get().val()
-        sillas_ruedas = db.child('Lugares').child(st.session_state.selected_id ).child('sillas_ruedas').get().val()
         st.write(f'Alcaldía: {location}')
         st.write(f'Tipo de negocio: {bss_type}')
-        st.write(f'asistencia: {asistencia}')
-        st.write(f'Elevadores: {elevadores}')
-        st.write(f'Estacionamiento: {estacionamiento}')
-        st.write(f'Rampas: {rampas}')
-        st.write(f'Silla de ruedas: {sillas_ruedas}')

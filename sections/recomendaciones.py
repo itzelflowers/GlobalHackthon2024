@@ -12,8 +12,8 @@ import random
 db = Firebase().getdb()
 
 def app():
-    st.title("Tus recomendaciones")
-    st.write("De acuerdo a tus necesidades y a las facilidades que ofrecen los lugares. Tenemos las siguientes recomendaciones.")
+    st.title("Your Recommendations")
+    st.write("Based on your needs and the amenities these places offer, we recommend the following options.")
     lugares = db.child('Lugares').get().val()
     lugares = list(lugares)
     random.shuffle(lugares)

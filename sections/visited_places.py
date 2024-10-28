@@ -50,7 +50,7 @@ def plot_map(folium_map):
     return folium_map
 
 def app():
-    st.title("Tus lugares visitados")
+    st.title("Your Visited Places")
     m = init_map()
     m = plot_map(m)
     lugares = db.child('Lugares').get().val()
