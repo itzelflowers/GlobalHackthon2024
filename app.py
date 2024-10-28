@@ -98,5 +98,5 @@ else:
         register()
     else:
         home.app()
-        if st.button("Registrar"):
+        if st.button("Register"):
             st.session_state.selection = "REGISTRAR"

@@ -65,17 +65,17 @@ def app():
     button_css = """
     <style>
     div.stButton > button:first-child {
-        background-color: #f97316;  /* Color naranja para contraste */
+        background-color: #10b981;  /* Green color for contrast */
         color: #ffffff;
         border: none;
     }
     div.stButton > button:hover {
-        background-color: #fb923c;  /* Color más claro para el hover */
+        background-color: #34d399;  /* Lighter green for hover */
         border: none;
     }
     </style>
-    """
-    
+"""
+
     st.markdown(button_css, unsafe_allow_html=True)
 
     # Información de login.
@@ -154,9 +154,9 @@ def app():
             elif st.session_state.selection == "PERFIL":
                 datos_usuario = obtener_datos_usuario()
                 st.title("User Information 📄")
-                st.write(f"**Name:** {datos_usuario['Nombre']} 👤")
-                st.write(f"**Lastname:** {datos_usuario['Apellido']} 👥")
-                st.write(f"**Email Address:** {datos_usuario['Correo Electrónico']} 📧")
+                st.write(f"**Name:** {datos_usuario['Name']} 👤")
+                st.write(f"**Lastname:** {datos_usuario['Lastname']} 👥")
+                st.write(f"**Email Address:** {datos_usuario['Email']} 📧")
                 st.write(f"**User Type:** {st.session_state['user_type']} 🛂")
                 st.write(f"**ID:** {st.session_state['ID']} 🔖")
                 st.write("User since: October 29, 2024 📅")
