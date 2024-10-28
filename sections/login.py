@@ -120,15 +120,13 @@ def app():
             st.session_state['name'] = db.child(st.session_state.ID).child('name').get().val()
             st.session_state['last_name'] = db.child(st.session_state.ID).child('last_name').get().val()
             st.sidebar.subheader(f'{st.session_state["name"]} {st.session_state["last_name"]}')
-            if st.sidebar.button("Inicio"):
+            if st.sidebar.button("Home "):
                 st.session_state.selection = "Home"
-            if st.sidebar.button("Perfil"):
+            if st.sidebar.button("Profile"):
                 st.session_state.selection = "Profile"
-            if st.sidebar.button("Sectores"):
-                st.session_state.selection = "Sectors"
-            if st.sidebar.button("Recompensas"):
+            if st.sidebar.button("Rewars"):
                 st.session_state.selection = "Rewars"
-            if st.sidebar.button("Recomendaciones"):
+            if st.sidebar.button("Recommendations"):
                 st.session_state.selection = "Recommendations"    
             if st.sidebar.button("Visited Places"):
                 st.session_state.selection = "VISITED"            
