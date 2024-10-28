@@ -47,7 +47,7 @@ def app():
         st.markdown('</div>', unsafe_allow_html=True)
     
     st.write("""
-    Join Access Places and be part of the adventure. Your next great experience starts here!
+    Join **Access Places** and be part of the adventure. Your next great experience starts here!
     """)
 
     st.write('<br>', unsafe_allow_html=True)
