@@ -80,35 +80,28 @@ def app():
 
     # Información de login.
     if not st.session_state['signedout']:
-        st.sidebar.image('./img/logoconnombre.png', use_column_width=True, width=180)
-        st.sidebar.title("Inicio de Sesión") 
-        st.sidebar.write("Inicia Sesión para ver más características")
-        text_email = st.sidebar.text_input('Correo Electrónico', key='email')
-        text_password = st.sidebar.text_input('Contraseña', type='password', key='password')
+        st.sidebar.image('./img/logo_empresa.jpeg', use_column_width=True, width=180)
+        st.sidebar.title("Login") 
+        st.sidebar.write("Sign in to see more features")
+        text_email = st.sidebar.text_input('Email', key='email')
+        text_password = st.sidebar.text_input('Password', type='password', key='password')
         # Enviar información.
-        st.sidebar.button("Iniciar Sesión", on_click=login_session, args=(text_email, text_password))
-        lottie_intro = load_lottiefile("./img/similo3.json")
-
-        # Mostrar la animación Lottie en la barra lateral
-        with st.sidebar:
-            st_lottie(lottie_intro)   
+        st.sidebar.button("Login", on_click=login_session, args=(text_email, text_password))
 
     # Sesión Iniciada.
     if st.session_state['signout']:
-        lottie_intro = load_lottiefile("./img/similo3.json") 
-        # st_lottie(lottie_intro)
-        st.sidebar.image('./img/logoconnombre.png', use_column_width=True, width=180)
-        st.sidebar.title("Bienvenido")
+        st.sidebar.image('./img/logo_empresa.jpeg', use_column_width=True, width=180)
+        st.sidebar.title("Welcome")
         
         
         if st.session_state['user_type'] == 'bussines':
             st.session_state['name'] = db.child(st.session_state.ID).child('name').get().val()
             st.session_state['bss_type'] = db.child(st.session_state.ID).child('bss_type').get().val()
             st.sidebar.subheader(f'{st.session_state["name"]}')
-            st.sidebar.markdown(f'**Giro de la empresa**: {st.session_state["bss_type"]}')
-            if st.sidebar.button("Registrar Lugar"):
+            st.sidebar.markdown(f'**Business Type**: {st.session_state["bss_type"]}')
+            if st.sidebar.button("Register your places"):
                 st.session_state.selection = "LUGARES"
-            if st.sidebar.button("Ver Lugares"):
+            if st.sidebar.button("See your places"):
                 st.session_state.selection = "VER_LUGARES"
             
             # Options.
@@ -127,17 +120,17 @@ def app():
             st.session_state['name'] = db.child(st.session_state.ID).child('name').get().val()
             st.session_state['last_name'] = db.child(st.session_state.ID).child('last_name').get().val()
             st.sidebar.subheader(f'{st.session_state["name"]} {st.session_state["last_name"]}')
-            if st.sidebar.button("Inicio"):
+            if st.sidebar.button("Home"):
                 st.session_state.selection = "INICIO"
-            if st.sidebar.button("Perfil"):
+            if st.sidebar.button("Profile"):
                 st.session_state.selection = "PERFIL"
-            if st.sidebar.button("Sectores"):
+            if st.sidebar.button("Sectors"):
                 st.session_state.selection = "SECTORES"
-            if st.sidebar.button("Recompensas"):
+            if st.sidebar.button("Rewards"):
                 st.session_state.selection = "RECOMPENSAS"
-            if st.sidebar.button("Recomendaciones"):
+            if st.sidebar.button("Recommendations"):
                 st.session_state.selection = "RECOMENDACIONES"    
-            if st.sidebar.button("Lugares Visitados"):
+            if st.sidebar.button("Visited places"):
                 st.session_state.selection = "VISITED"            
                 
             # Options.
@@ -153,11 +146,11 @@ def app():
                 sectores.app()
             elif st.session_state.selection == "PERFIL":
                 datos_usuario = obtener_datos_usuario()
-                st.title("Datos del Usuario 📄")
-                st.write(f"**Nombre:** {datos_usuario['Nombre']} 👤")
-                st.write(f"**Apellido:** {datos_usuario['Apellido']} 👥")
-                st.write(f"**Correo Electrónico:** {datos_usuario['Correo Electrónico']} 📧")
-                st.write(f"**Tipo de Usuario:** {st.session_state['user_type']} 🛂")
+                st.title("Traveler's data: 📄")
+                st.write(f"**First name:** {datos_usuario['Nombre']} 👤")
+                st.write(f"**Last name* {datos_usuario['Apellido']} 👥")
+                st.write(f"**Email:** {datos_usuario['Correo Electrónico']} 📧")
+                st.write(f"**Type of user:** {st.session_state['user_type']} 🛂")
                 st.write(f"**ID:** {st.session_state['ID']} 🔖")
                 st.write("Usuario desde: 14 de Abril de 2024 📅")
                 # Mostrar esta animación en el cuerpo principal
